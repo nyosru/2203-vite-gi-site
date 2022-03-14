@@ -57,7 +57,7 @@
         </button>
       </div>
     </form>
-    form1_warning {{ form1_warning ? 1 : 0 }}
+    <!-- form1_warning {{ form1_warning ? 1 : 0 }} -->
     <div
       v-if="form1_warning"
       class="xpt-32 mx-auto text-center call-action-content bg-yellow-300 p-2 rounded-lg"

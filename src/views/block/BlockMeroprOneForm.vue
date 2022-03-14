@@ -5,6 +5,8 @@
       <span class="text-neutral-400">
         , отправьте свой телефон, позвоним
       </span>
+      <!-- <br/>
+      или позвоните <a href="tel:+79781483337" >8-978-148-33-37</a> -->
     </p>
 
     <div class="text-center">

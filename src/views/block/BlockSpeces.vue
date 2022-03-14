@@ -192,7 +192,7 @@ export default {
           'Гипнолог, Энергопрактик, проводник и адвокат при работе с "помощниками оттуда" для помощи и успеха человеку',
         // img: 'ssb.png',
         img: 'ssb.webp',
-        link_vk: 'https://vk.com/phpcatcom',
+        link_vk: 'https://vk.com/gipnoz911',
       },
       // ])
     ]

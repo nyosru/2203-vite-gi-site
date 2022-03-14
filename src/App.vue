@@ -5,7 +5,7 @@
   <router-view name="speces"></router-view>
   <router-view name="call2action1"></router-view>
   <router-view name="opis1"></router-view>
-  <router-view name="contact"></router-view>
+  <!-- <router-view name="contact"></router-view> -->
   <router-view name="footer1"></router-view>
 </template>
 
