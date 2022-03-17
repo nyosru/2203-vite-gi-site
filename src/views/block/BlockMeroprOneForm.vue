@@ -28,7 +28,7 @@
         />
         <button
           type="submit"
-          class="absolute top-0 right-0 px-6 py-2 mt-1 mr-2 font-bold text-white duration-300 bg-blue-600 rounded-full hover:bg-blue-500"
+          class="md:absolute top-0 right-0 px-6 py-2 mt-1 mr-2 font-bold text-white duration-300 bg-blue-600 rounded-full hover:bg-blue-500"
         >
           Хочу принять участие
         </button>

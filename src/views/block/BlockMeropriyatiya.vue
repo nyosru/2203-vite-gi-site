@@ -20,7 +20,6 @@
   </section>
 
   <section class="relative overflow-hidden xbg-blue-600 call-to-action">
-
     <!-- 11 - {{ odd(1) }}
     <br />
     22 - {{ odd(2) }}
@@ -31,9 +30,10 @@
 
     <div class="container-fluid">
       <div v-for="(v, k) in mero" :key="k.name" class="justify-end row">
+        
         <div
           v-if="odd(k)"
-          class="xabsolute xtop-0 xleft-0 w-full md:w-1/2 h-full call-action-image"
+          class="md:block hidden xabsolute xtop-0 xleft-0 w-full md:w-1/2 h-0 md:h-full call-action-image"
         >
           <img
             :src="'/merop/' + v.img"
@@ -43,83 +43,87 @@
             class="shadow-xl rounded merop-call"
           />
         </div>
-
+        
+        <div
+          class="block md:hidden xabsolute xtop-0 xleft-0 w-full md:w-1/2 h-full call-action-image"
+        >
+          <img
+            :src="'/merop/' + v.img"
+            xsrc="assets/images/call-to-action.png"
+            alt=""
+            :class="'rotate' + RandomInt(1, 4)"
+            class="shadow-xl rounded merop-call"
+          />
+        </div>
+        
         <div class="w-full md:w-1/2">
-          <div class="pt-32 mx-auto text-center call-action-content">
+          <div class="pt-4 sm:pt-32 mx-auto text-center call-action-content">
             <h2
-              class="mb-0 pt-0 text-5xl font-semibold leading-tight xtext-white"
+              class="mb-0 pt-0 text-3xl md:text-5xl font-semibold leading-tight xtext-white"
             >
               {{ v.name ?? v.where }}
             </h2>
 
-            <p class="mt-0 pt-0 mb-6 xtext-white bg-green-400">
+            <p class="pt-0 mt-3 mb-6 sm:mt-2 sm:mb-6 xtext-white bg-green-400">
               {{ v.where }} / {{ v.date }}
             </p>
 
-            <p class="xmb-6 xtext-white text-left">
+            <p class="px-3 sm:px-0 xmb-6 xtext-white text-left">
               <!-- {{ v.opis }} -->
               <span v-html="v.opis"></span>
-            
             </p>
 
-    <div class="text-center pt-5 xpb-5" >
+            <div class="text-center pt-5 xpb-5">
+              <!-- <router-link :to="{path:'/details/12345'}">click me</router-link> -->
 
-            <!-- <router-link :to="{path:'/details/12345'}">click me</router-link> -->
+              <router-link
+                :to="{ path: '/m/' + v.id }"
+                class="xinline-block font-mono xbg-gradient-to-r xfrom-cyan-500 xto-blue-500 xbg-blue-500 xtext-white text-blue-500 xpy-1 xpx-2 mr-4 xring-2 xrounded-sm hover:underline"
+              >
+                Полное описание
+              </router-link>
 
-            <router-link
-              :to="{ path: '/m/' + v.id }"
-              class="xinline-block font-mono xbg-gradient-to-r xfrom-cyan-500 xto-blue-500 
-              xbg-blue-500 xtext-white text-blue-500
-              xpy-1 xpx-2 mr-4 xring-2 xrounded-sm
-              hover:underline
-              "
-            >
-              Полное описание
-            </router-link>
-
-            <!-- <a :href="'/m/'+v.id" class="inline-block font-mono 
+              <!-- <a :href="'/m/'+v.id" class="inline-block font-mono 
               xbg-gradient-to-r xfrom-cyan-500 xto-blue-500 
               bg-blue-500 text-white
               py-1 px-2 mr-4
               ring-2 rounded-sm" >Полное описание</a> -->
-            <!-- <a
+              <!-- <a
               :href="'/m/' + v.id"
               class="inline-block font-mono xbg-gradient-to-r xfrom-cyan-500 xto-blue-500 bg-blue-500 text-white py-1 px-2 ring-2 rounded-sm"
             > -->
 
-            <router-link
-              :to="{ path: '/m/' + v.id }"
-              xclass="inline-block font-mono xbg-gradient-to-r xfrom-cyan-500 xto-blue-500 bg-blue-500 text-white py-1 px-2 ring-2 rounded-sm"
-              class="xinline-block font-mono xbg-gradient-to-r xfrom-cyan-500 xto-blue-500 
-              xbg-blue-500 xtext-white text-blue-500
-              xpy-1 xpx-2 mr-4 xring-2 xrounded-sm
-              hover:underline
+              <router-link
+                :to="{ path: '/m/' + v.id }"
+                xclass="inline-block font-mono xbg-gradient-to-r xfrom-cyan-500 xto-blue-500 bg-blue-500 text-white py-1 px-2 ring-2 rounded-sm"
+                class="xinline-block font-mono xbg-gradient-to-r xfrom-cyan-500 xto-blue-500 xbg-blue-500 xtext-white text-blue-500 xpy-1 xpx-2 mr-4 xring-2 xrounded-sm hover:underline"
+              >
+                Выбрать тариф
+                <!-- </a> -->
+              </router-link>
+            </div>
+
+            <br />
+            <br />
+
+            <one-form
+              :head="
+                'Мероприятие: ' +
+                v.name +
+                '(' +
+                v.date +
+                ')' +
+                '\n\r' +
+                'Форма в списке мероприятий ( без выбора тарифа )'
               "
-            >
-              Выбрать тариф
-            <!-- </a> -->
-            </router-link>
-</div>
-
-
-            <br />
-            <br />
-
-
-        <one-form   :head="
-          'Мероприятие: ' +
-          v.name + '('+ v.date +')' +
-          '\n\r' +
-          'Форма в списке мероприятий ( без выбора тарифа )'
-        " />
-
+            />
           </div>
           <!-- slider-content -->
         </div>
 
         <div
           v-if="!odd(k)"
-          class="xabsolute xtop-0 xleft-0 w-full md:w-1/2 h-full call-action-image"
+          class="md:block hidden xabsolute xtop-0 xleft-0 w-full md:w-1/2 h-full call-action-image"
         >
           <img
             :src="'/merop/' + v.img"
@@ -145,16 +149,16 @@ import oneForm from './BlockMeroprOneForm.vue'
 
 export default {
   components: {
-    oneForm
+    oneForm,
   },
-  setup( props ) {
+  setup(props) {
     const mero = [
       {
         id: 1,
         name: 'Гипноз Высшая школа',
         where: 'Санкт-Петербург',
         date: '25-28 марта',
-        opis: 
+        opis:
           'Обучение гипнозу: Классика гипноза. Эриксоновский гипноз. Директивный гипноз. Индукция Элмана. Техники НЛП.' +
           'Неформальный и невербальный гипноз. Ментальная манипуляция. Гипноз через состояние. Экстрасенсорика. Коллективный разум.' +
           'Терапия в гипнозе. Гипноз с детьми. Терапия при энурезе, заикании, умственной отсталости. Работа с энергополем родителя.',
@@ -166,7 +170,7 @@ export default {
         name: 'Гипноз Московская сессия',
         where: 'Москва',
         date: '21-24 апреля',
-        opis: 
+        opis:
           'Обучение гипнозу: Классика гипноза. Эриксоновский гипноз. Директивный гипноз. Индукция Элмана. Техники НЛП.' +
           'Неформальный и невербальный гипноз. Ментальная манипуляция. Гипноз через состояние. Экстрасенсорика. Коллективный разум.' +
           'Терапия в гипнозе. Гипноз с детьми. Терапия при энурезе, заикании, умственной отсталости. Работа с энергополем родителя.',
@@ -204,7 +208,6 @@ export default {
       return number % 2 === 0 ? true : false
     }
 
-
     return {
       mero,
       RandomInt,
@@ -212,14 +215,11 @@ export default {
     }
   },
 
-
-  methods: { 
-           scrollToTop() {
-                window.scrollTo(0,0);
-           }
-        }
-
-
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0)
+    },
+  },
 }
 </script>
 
@@ -251,5 +251,4 @@ img.merop-call {
   background-position: center center;
   background-size: cover;
 } */
-
 </style>

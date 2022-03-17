@@ -31,7 +31,11 @@
 
             <!-- justify-center hidden md:flex collapse navbar-collapse sub-menu-bar -->
             <div
-              class="absolute left-0 z-30 hidden w-full px-5 py-3 duration-300 bg-white shadow md:opacity-100 md:w-auto collapse navbar-collapse md:block top-100 mt-full md:static md:bg-transparent md:shadow-none"
+              class="xabsolute left-0 z-30 w-full px-5 py-3 
+              duration-300 bg-white shadow md:opacity-100 md:w-auto 
+              xnavbar-collapse 
+              md:block top-100 mt-full md:static md:bg-transparent md:shadow-none
+              hidden collapse"
               id="navbarOne"
             >
               <ul
