@@ -11,9 +11,11 @@
     <div class="container">
       <div class="row">
         <div class="w-full">
+
           <nav
             class="flex items-center justify-between navbar navbar-expand-md"
           >
+
             <a class="mr-4 navbar-brand" href="/">
               <!-- <img src="assets/images/logo.svg" alt="Logo" /> -->
               <!-- <img src="/logo1.png" alt="Logo" style="max-height: 50px;" /> -->
@@ -48,6 +50,7 @@
               class="absolute left-0 z-30 hidden w-full px-5 py-3 duration-300 bg-white shadow md:opacity-100 md:w-auto collapse navbar-collapse md:block top-100 mt-full md:static md:bg-transparent md:shadow-none"
               id="navbarOne"
             >
+
               <ul
                 class="items-center content-start mr-auto lg:justify-center md:justify-end navbar-nav md:flex"
               >
@@ -64,20 +67,27 @@
                 <li class="nav-item" :class="{ 'active' : activePrice }" >
                   <a class="page-scroll" href="/#pricing">Мероприятия</a>
                 </li>
+
                 <li class="nav-item" :class="{ 'active' : activeUser }" >
                   <a class="page-scroll" href="/#testimonial">Участники</a>
                 </li>
+
                 <li class="nav-item" :class="{ 'active' : activeContact }" >
                   <a class="page-scroll" href="/#contact">Контакты</a>
                 </li>
+
               </ul>
+
             </div>
 
             <div class="items-center justify-end hidden navbar-social lg:flex">
+
               <span class="mr-4 font-bold text-gray-900 uppercase">
                 <a href="tel:+79781483337">+7-978-148-33-37</a>
               </span>
+
               <ul class="flex footer-social">
+
                 <!-- <li>
                       <a href="#"><i class="lni-facebook-filled"></i></a>
                     </li> -->
@@ -87,6 +97,7 @@
                 <!-- <li>
                       <a href="#"><i class="lni-twitter-original"></i></a>
                     </li> -->
+
                 <li>
                   <a
                     href="https://www.instagram.com/gipnozlive/"
@@ -102,12 +113,9 @@
               </ul>
             </div>
           </nav>
-          <!-- navbar -->
         </div>
       </div>
-      <!-- row -->
     </div>
-    <!-- container -->
   </div>
 
   <div
