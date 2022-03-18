@@ -2,6 +2,10 @@
   <div
     class="navigation bg-white drop-shadow-lg"
     style="position: fixed; top: 0;"
+     :class="{
+      'bg-white': scrollNow > 50,
+      'drop-shadow-lg': scrollNow > 50,
+    }"
   >
     <div class="container">
       <div class="row">
@@ -32,7 +36,7 @@
             <!-- justify-center hidden md:flex collapse navbar-collapse sub-menu-bar -->
             <div
               class="xabsolute left-0 z-30 w-full px-5 py-3 
-              duration-300 bg-white shadow md:opacity-100 md:w-auto 
+              duration-300 bg-white shadow md:opacity-100 md:w-auto []
               xnavbar-collapse 
               md:block top-100 mt-full md:static md:bg-transparent md:shadow-none
               hidden collapse"

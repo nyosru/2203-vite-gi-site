@@ -20,10 +20,10 @@
 
         <div class="w-full md:w-1/2">
           <div class="py-32 mx-auto text-center call-action-content">
-            <h2 class="mb-5 text-5xl font-semibold leading-tight text-white">
-              Вступить в союз специалистов!
+            <h2 class="mb-5 text-3xl sm:text-5xl  font-semibold leading-tight text-white">
+              Вступить в&nbsp;союз специалистов!
             </h2>
-            <p class="mb-6 text-white">
+            <p class="mb-6 px-3 md:px-0 text-white">
               <!-- Оказываете услуги нашего профиля? Вступайте в наш союз!  -->
               Обучение, поддержка, обмен опытом. Плановые встречи повышения
               квалификации. Отправьте свой телефон и&nbsp;мы&nbsp;перезвоним

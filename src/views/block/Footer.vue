@@ -3,16 +3,16 @@
     <!-- <div class="mb-16 footer-widget"> -->
     <div class="footer-widget">
       <div class="container">
-        <div class="row py-10">
+        <div class="row pt-10 pb-20 sm:pb-10 ">
           <div class="w-full sm:w-1/2 xmd:w-1/4 xlg:w-1/2 text-center">
                 <p>Все права зищищены © 2003-2022</p>
           </div>
           <div class="w-full sm:w-1/2 xmd:w-1/4 xlg:w-1/2 text-center">
-                <p>Создание сайта: <a href="https://php-cat.com" target="_blank" >php-cat.com</a></p>
+                <p><a href="https://php-cat.com" target="_blank" >Создание сайта: php-cat.com</a></p>
           </div>
         </div>
         <!-- row -->
-        <div class="row">
+        <div v-if="1==2" class="row">
           <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/6">
             <div v-if="1 == 2" class="mb-8 footer-link">
               <h6 class="footer-title">Company</h6>

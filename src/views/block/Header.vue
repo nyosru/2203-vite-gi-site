@@ -20,8 +20,17 @@
               <img src="/logo.svg" alt="Logo" style="max-height: 50px;" />
             </a>
 
+              <span class="mr-4 font-bold text-gray-900 uppercase
+              block md:hidden
+              ">
+                <a href="tel:+79781483337">+7-978-148-33-37</a>
+              </span>
+
             <button
-              class="block navbar-toggler focus:outline-none md:hidden"
+              class=" navbar-toggler focus:outline-none 
+              xblock xmd:hidden
+              hidden
+              "
               type="button"
               data-toggle="collapse"
               data-target="#navbarOne"
