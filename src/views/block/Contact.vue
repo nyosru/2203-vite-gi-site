@@ -94,7 +94,7 @@
                   <div class="mx-4 mt-2 text-center single-form form-group">
                     <button
                       type="submit"
-                      class="main-btn gradient-btn focus:outline-none"
+                      class="main-btn bg-blue-400 gradient-btn focus:outline-none"
                     >
                       Отправить сообщение
                     </button>

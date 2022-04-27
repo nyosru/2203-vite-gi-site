@@ -30,7 +30,6 @@
 
     <div class="container-fluid">
       <div v-for="(v, k) in mero" :key="k.name" class="justify-end row">
-        
         <div
           v-if="odd(k)"
           class="md:block hidden xabsolute xtop-0 xleft-0 w-full md:w-1/2 h-0 md:h-full call-action-image"
@@ -43,7 +42,7 @@
             class="shadow-xl rounded merop-call"
           />
         </div>
-        
+
         <div
           class="block md:hidden xabsolute xtop-0 xleft-0 w-full md:w-1/2 h-full call-action-image"
         >
@@ -55,7 +54,7 @@
             class="shadow-xl rounded merop-call"
           />
         </div>
-        
+
         <div class="w-full md:w-1/2">
           <div class="pt-4 sm:pt-32 mx-auto text-center call-action-content">
             <h2
@@ -64,13 +63,22 @@
               {{ v.name ?? v.where }}
             </h2>
 
-            <p class="pt-0 mt-3 mb-6 sm:mt-2 sm:mb-6 xtext-white bg-green-400">
+            <div
+              v-if="v.status && v.status == 'running'"
+              class="text-center p-5 block rounded-sm bg-gradient-to-tr from-blue-200 to-cyan-500 my-2"
+            >
+              Идёт в данный момент!
+            </div>
+
+            <p
+              class="pt-0 mt-3 mb-6 sm:mt-2 sm:mb-6 rounded-sm xtext-white bg-green-400"
+            >
               {{ v.where }} / {{ v.date }}
             </p>
 
             <p class="px-3 sm:px-0 xmb-6 xtext-white text-left">
               <!-- {{ v.opis }} -->
-              <span v-html="v.opis"></span>
+              <span v-html="v.opis_small"></span>
             </p>
 
             <div class="text-center pt-5 xpb-5">
@@ -142,41 +150,46 @@
 </template>
 
 <script>
-import { onMounted } from '@vue/runtime-core'
-// import { ref } from 'vue'
+// import { onMounted } from '@vue/runtime-core'
+import { ref, onMounted } from 'vue'
 
 import oneForm from './BlockMeroprOneForm.vue'
+import axios from 'axios'
 
 export default {
   components: {
     oneForm,
   },
   setup(props) {
+    const mero7 = ref([])
+
     const mero = [
-      {
-        id: 1,
-        name: 'Гипноз Высшая школа',
-        where: 'Санкт-Петербург',
-        date: '25-28 марта',
-        opis:
-          'Обучение гипнозу: Классика гипноза. Эриксоновский гипноз. Директивный гипноз. Индукция Элмана. Техники НЛП.' +
-          'Неформальный и невербальный гипноз. Ментальная манипуляция. Гипноз через состояние. Экстрасенсорика. Коллективный разум.' +
-          'Терапия в гипнозе. Гипноз с детьми. Терапия при энурезе, заикании, умственной отсталости. Работа с энергополем родителя.',
+      // {
+      //   id: 1,
+      //   name: 'Гипноз Высшая школа',
+      //   where: 'Санкт-Петербург',
+      //   date: '25-28 марта',
+      //   opis:
+      //     'Обучение гипнозу: Классика гипноза. Эриксоновский гипноз. Директивный гипноз. Индукция Элмана. Техники НЛП.' +
+      //     'Неформальный и невербальный гипноз. Ментальная манипуляция. Гипноз через состояние. Экстрасенсорика. Коллективный разум.' +
+      //     'Терапия в гипнозе. Гипноз с детьми. Терапия при энурезе, заикании, умственной отсталости. Работа с энергополем родителя.',
 
-        img: 'piter.jpg',
-      },
-      {
-        id: 2,
-        name: 'Гипноз Московская сессия',
-        where: 'Москва',
-        date: '21-24 апреля',
-        opis:
-          'Обучение гипнозу: Классика гипноза. Эриксоновский гипноз. Директивный гипноз. Индукция Элмана. Техники НЛП.' +
-          'Неформальный и невербальный гипноз. Ментальная манипуляция. Гипноз через состояние. Экстрасенсорика. Коллективный разум.' +
-          'Терапия в гипнозе. Гипноз с детьми. Терапия при энурезе, заикании, умственной отсталости. Работа с энергополем родителя.',
+      //   img: 'piter.jpg',
+      //   // status: 'running',
+      //   status: 'finish',
+      // },
+      // {
+      //   id: 2,
+      //   name: 'Гипноз Московская сессия',
+      //   where: 'Москва',
+      //   date: '21-24 апреля',
+      //   opis:
+      //     'Обучение гипнозу: Классика гипноза. Эриксоновский гипноз. Директивный гипноз. Индукция Элмана. Техники НЛП.' +
+      //     'Неформальный и невербальный гипноз. Ментальная манипуляция. Гипноз через состояние. Экстрасенсорика. Коллективный разум.' +
+      //     'Терапия в гипнозе. Гипноз с детьми. Терапия при энурезе, заикании, умственной отсталости. Работа с энергополем родителя.',
 
-        img: 'msk.jpg',
-      },
+      //   img: 'msk.jpg',
+      // },
       {
         id: 3,
         name: 'Летний фестиваль целителей',
@@ -197,6 +210,21 @@ export default {
         img: 'buhta.webp',
       },
     ]
+
+    // onMounted(() => {
+    //   axios
+    //     .get('http://base15.php-cat.com/api/gipnos/meropriyatiya')
+    //     .then((response) => {
+    //       console.log('response.data', response.data)
+    //       // this.info = response.data.bpi;
+    //       mero.value = response.data.merop
+    //     })
+    //     .catch((error) => {
+    //       console.log( 'error', error)
+    //     //   this.errored = true
+    //     })
+    //     // .finally(() => (this.loading = false))
+    // })
 
     function RandomInt(min, max) {
       min = Math.ceil(min)
