@@ -194,6 +194,15 @@ export default {
         img: 'ssb.webp',
         link_vk: 'https://vk.com/gipnoz911',
       },
+      {
+        name: 'Юлиана Слепухина',
+        city: 'г. Кола',
+        opis:
+          'Эстетист-массажист, энергопрактик, гипнолог, психолог. Специалист широкого профиля.',
+        // img: 'ssb.png',
+        img: 'slipuhina.jpg',
+        link_vk: 'https://vk.com/id255348784',
+      },
       // ])
     ]
 
